@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author Convert Team
+ * @copyright Copyright (c) Convert (https://www.convert.no/)
+ */
+?>
+<?php
+/**
+ * @var Magento\Catalog\Block\Product\View $block
+ * @var Magento\Framework\Escaper $escaper
+ */
+$product = $block->getProduct();
+?>
+
+<?php if ($externalUrl = $product->getData('external_url')): ?>
+    <div data-bind="scope: 'externalUrlSection'">
+        <button type="button" class="action primary show-external-url" data-bind="click: showExternalUrlButton">
+            <span data-bind="i18n: 'Show URL'"></span>
+        </button>
+        <a data-bind="visible: showUrl"
+            href="<?= $escaper->escapeUrl($externalUrl) ?>"
+            class="product-info-external-url">
+            <?= $escaper->escapeHtml(__('External Url')) ?>
+        </a>
+    </div>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "externalUrlSection": {
+                        "component": "Convert_Training/js/show-external-url"
+                    }
+                }
+            }
+        }
+    }
+</script>

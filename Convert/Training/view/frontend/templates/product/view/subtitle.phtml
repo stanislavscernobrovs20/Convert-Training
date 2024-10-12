@@ -1,0 +1,19 @@
+<?php
+/**
+ * @author Convert Team
+ * @copyright Copyright (c) Convert (https://www.convert.no/)
+ */
+?>
+<?php
+/**
+ * @var Magento\Catalog\Block\Product\View $block
+ * @var Magento\Framework\Escaper $escaper
+ */
+$product = $block->getProduct();
+?>
+
+<?php if ($subtitle = $product->getData('subtitle')): ?>
+    <h2 class="product-info-subtitle">
+        <?= $escaper->escapeHtml($subtitle) ?>
+    </h2>
+<?php endif; ?>

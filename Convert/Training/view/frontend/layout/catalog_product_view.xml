@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Convert Team
+ * @copyright Copyright (c) Convert (https://www.convert.no/)
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.overview" remove="true" />
+        <referenceBlock name="product.info.description" remove="true" />
+        <referenceBlock name="page.main.title">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.subtitle"
+                   template="Convert_Training::product/view/subtitle.phtml" />
+        </referenceBlock>
+        <referenceContainer name="product.info.media">
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.external.url"
+                   template="Convert_Training::product/view/external_url.phtml" />
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description.media" template="Magento_Catalog::product/view/attribute.phtml">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getDescription</argument>
+                    <argument name="at_code" xsi:type="string">description</argument>
+                    <argument name="css_class" xsi:type="string">description</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Description</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block name="product.view.leave.page" template="Convert_Training::product/view/leave_page.phtml" />
+        </referenceContainer>
+    </body>
+</page>
